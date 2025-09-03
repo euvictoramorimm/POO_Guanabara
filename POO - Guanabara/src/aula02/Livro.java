@@ -13,6 +13,7 @@ public class Livro {
     void abrir(){
         if (this.aberto == false) {
               System.out.println("Abrindo o livro... ");
+              this.aberto = true;
         } else {
           System.out.println("O livro já está aberto. ");
         }
@@ -20,6 +21,7 @@ public class Livro {
     void fechar() {
         if (this.aberto ==true) {
             System.out.println("Fechando o livro... ");
+            this.aberto = false;
         } else {
             System.out.println("O livro já está fechado");
         }
