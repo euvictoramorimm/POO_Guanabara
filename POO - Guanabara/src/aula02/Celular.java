@@ -10,7 +10,7 @@ public class Celular {
 
     //methods
     void ligar() {
-        ligado = true
+        ligado = true;
     }
 
     void desligar() {
@@ -20,12 +20,12 @@ public class Celular {
     void carregar(){
         if (this.nivelBateria < 100) {
             System.out.println("Carregando o celular... ");
-            this.nivelBateria = this.nivelBateria + 10
+            this.nivelBateria = this.nivelBateria + 10;
         }
 
         if (this.nivelBateria > 100) {
             this.nivelBateria = 100;
-            System.out.println("Celular carregado!" )
+            System.out.println("Celular carregado!" );
         }
     }
 }
