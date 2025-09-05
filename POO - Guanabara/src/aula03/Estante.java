@@ -5,13 +5,16 @@ public class Estante {
     //atributtes
     public String cor;
     public String material;
-    public int prateleiras;
+    public int prateleira;
     public boolean vazia;
 
     //methods
     void status() {
-        Syste
+        System.out.println("A cor da estante é " + this.cor + ".");
+        System.out.println("O estante é feita de " + this.material + ".");
+        System.out.println("A estante tem " + this.prateleira + ".");
     }
 
-    
+
+
 }
