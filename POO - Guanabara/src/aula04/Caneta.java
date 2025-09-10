@@ -8,6 +8,12 @@ public class Caneta {
     protected int carga;
     protected boolean tampada;
 
+    public Caneta (String modelo, String cor, double ponta) {
+        this.modelo = modelo;
+        this.cor = cor;
+        this.ponta = ponta;
+    }
+
     public String getModelo() {
         return this.modelo;
     }
