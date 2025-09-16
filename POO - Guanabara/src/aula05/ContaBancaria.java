@@ -14,64 +14,71 @@ public class ContaBancaria {
     //methods
     public void abrirConta(String tipo) {
         //Se abrir conta corrente ganha R$50,00 se for conta poupança ganha R$150,00
-        setTipo(tipo);
-        setStatus(true);
+        this.setTipo(tipo);
+        this.setStatus(true);
         if(tipo == "CC") {
-            saldo = 50;
+            this.setSaldo = 50;
         }else if (tipo == "CP")  {
-            saldo = 150;
+            this.setSaldo = 150;
         }
+        System.out.println("Conta aberta com sucesso!");
 
     }
 
     public void fecharConta() {
-        if (saldo > 0) {
+        if (this.getSaldo() > 0) {
             System.out.println("Conta com dinheiro, é necessário estar zerada para fechamento da conta.");
-        } else if (saldo < 0) {
-            System.out.println("A conta está em débito, é necessário estar em dia para fechamento da conta");
+        } else if (this.getSaldo() < 0) {
+            System.out.println("A conta está em débito, é necessário estar em dia para fechamento da conta.");
         } else {
+            this.setStatus(false);
             System.out.println("Conta fechada com sucesso!");
-            status = false;
         }
 
 
     }
 
-    public void depositar(double v) {
-        if (status == true) {
-            saldo += v;
+    public void depositar(float v) {
+        if (this.getStatus()) {
+            //this.saldo += v;
+            this.setSaldo(this.getSaldo() + v) ;
+            System.out.println("Déposito realizado de " + v + "na conta de " + this.getDono() ".");
         } else {
-            System.out.println("Impossível depositar");
+            System.out.println("Impossível depositar.");
         }
 
 
     }
 
-    public void sacar(double v) {
-        if (status == true) {
-            saldo -= v;
-        } else {
-            System.out.println("Impossível sacar");
-        }
+    public void sacar(float v) {
+        if (this.getStatus()) {
+           if (this.getSaldo() >= v) {
+               this.setSaldo(this.getSaldo() - v);
+               System.out.println("Saque de " + v + "realizado!");
+           } else {
+               System.out.println("Saldo insuficiente, o saque não pode ser realizado.");
+           }
 
+        } else {
+            System.out.println("Conta fechada, o saque não pode ser realizado.");
+        }
     }
 
     public void pagarMensal(double v) {
     //A mensalidade a ser paga na conta corrente é de R$12 e o de conta poupança R$20
-        if (tipo == "CC") {
+        if (this.getTipo() == "CC") {
                 v = 12;
-        } else if (tipo == "CP") {
+        } else if (this.getTipo() == "CP") {
                 v = 20;
         }
 
-        if (status == true) {
-            if (saldo >= v) {
-                saldo -= v;
+        if (this.getStatus()) {
+            this.setSaldo(this.getSaldo() - v); {
+                System.out.println("Mensalidade paga com sucesso!");
+
             }else {
-                System.out.println("Saldo insuficiente.");
+                System.out.println("Saldo insuficiente.");  
             }
-        }else {
-            System.out.println("Impossível pagar!");
         }
     }
 
@@ -101,10 +108,18 @@ public class ContaBancaria {
         this.saldo = saldo;
     }
 
+    public boolean getStatus() {
+        return status;
+    }
+
+    public boolean getStatus() {
+        return status;
+    }
+
     //constructor method
     public ContaBancaria() {
-        saldo = 0;
-        status = false;
+        this.saldo = 0;
+        this.status = false;
     }
 
 }
