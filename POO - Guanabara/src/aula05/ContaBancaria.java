@@ -12,14 +12,27 @@ public class ContaBancaria {
 
 
     //methods
+
+    public void EstadoAtual() {
+        System.out.println("==========================");
+        System.out.println("Conta: " + this.numConta);
+        System.out.println("Tipo: "+ this.tipo);
+        System.out.println("Dono: "+ this.dono);
+        System.out.println("Saldo: "+ this.saldo);
+        System.out.println("Status: "+ this.status);
+    }
+
+
+
+
     public void abrirConta(String tipo) {
         //Se abrir conta corrente ganha R$50,00 se for conta poupança ganha R$150,00
         this.setTipo(tipo);
         this.setStatus(true);
         if(tipo == "CC") {
-            this.setSaldo = 50;
+            this.setSaldo(50);
         }else if (tipo == "CP")  {
-            this.setSaldo = 150;
+            this.setSaldo(150);
         }
         System.out.println("Conta aberta com sucesso!");
 
@@ -42,7 +55,7 @@ public class ContaBancaria {
         if (this.getStatus()) {
             //this.saldo += v;
             this.setSaldo(this.getSaldo() + v) ;
-            System.out.println("Déposito realizado de " + v + "na conta de " + this.getDono() ".");
+            System.out.println("Déposito realizado de R$" + v + " na conta de " + this.getDono() + ".");
         } else {
             System.out.println("Impossível depositar.");
         }
@@ -75,10 +88,9 @@ public class ContaBancaria {
         if (this.getStatus()) {
             this.setSaldo(this.getSaldo() - v); {
                 System.out.println("Mensalidade paga com sucesso!");
-
-            }else {
-                System.out.println("Saldo insuficiente.");  
             }
+        } else {
+            System.out.println("Saldo insuficiente.");
         }
     }
 
@@ -112,8 +124,8 @@ public class ContaBancaria {
         return status;
     }
 
-    public boolean getStatus() {
-        return status;
+    public void setStatus(boolean status) {
+        this.status = status;
     }
 
     //constructor method
