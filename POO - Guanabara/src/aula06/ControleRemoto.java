@@ -23,7 +23,6 @@ public class ControleRemoto implements Controlador {
         this.volume = volume;
     }
 
-
     private boolean getLigado() {
 
         return ligado;
